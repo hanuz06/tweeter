@@ -1,0 +1,31 @@
+body {
+  padding-top: 120px;
+}
+
+header {
+  display: flex;  
+  height: 400px;
+  width: 100%;  
+  justify-content: center;
+  align-items: center;
+  background-color: #bdbd59;
+background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+  /* //background-color: #d79820; */
+}
+
+.tweeter-input {
+  text-align: center;
+}
+
+.fas {
+  color: red;
+}
+
+.name {
+  text-align: center;
+  color: antiquewhite;
+}
+
+main h2 {
+  text-align: center;
+}
