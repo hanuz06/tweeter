@@ -1,4 +1,3 @@
-
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -39,7 +38,7 @@ const data = [{
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1461113959088
+    "created_at": 1573022863112
   }
 ]
 
@@ -91,12 +90,55 @@ const renderTweets = function (tweets) {
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
 
+  tweets.reverse();
   tweets.forEach(tweet => {
     $('#tweet-dynamic-container').append(createTweetElement(tweet));
   });
 };
 
+const loadtweets = function () {
+  $.ajax({
+    url: '/tweets',
+    dataType: 'json',
+    success: (data => renderTweets(data)),
+    failure: (err => console.error(err))
+  });
+}
+
 
 $(document).ready(function () {
-  renderTweets(data);
+  let onChange;
+
+  const $onSubmit = $('#tweet-form');
+  $onSubmit.on("submit", function (e) {
+    e.preventDefault()
+    console.log('Button clicked, performing ajax call...');
+    let $content = $('#tweet-form').serialize();
+    let contentLength = $('#text').val().length;
+
+    if (!contentLength) {
+      alert("It cannot be empty")
+    } else if (contentLength > 140) {
+      alert('The number of characters should be less than 140')
+    } else {
+      console.log('posting')
+      $.ajax({
+        type: 'POST',
+        url: '/tweets',
+        data: $content,
+        //dataType: 'json',
+        success: function (res) {
+          $("#tweet-dynamic-container").prepend(createTweetElement(res))
+        },
+        failure: err => console.error(err)
+      });
+    }
+  });
+
+  loadtweets();
+
+  $(".fa-angle-double-down").on('click', function(){
+    $('#text').focus();
+    
+  })
 });

@@ -101,7 +101,9 @@ User tweets container
   font-size: 1.2rem;
   border: none;
   border-bottom: solid #545149 2px;
+  word-wrap:break-word
 }
+
 
 .footer {
   display: flex;
@@ -135,9 +137,9 @@ Hover effects
 
 -------------------------------------------- */
 
-/* section:hover .header__user__id {
+article.tweet:hover .header__user__id {
   display: block;
-} */
+}
 
 article.tweet:hover {
   font-weight: bold;
