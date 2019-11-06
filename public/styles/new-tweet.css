@@ -1,9 +1,14 @@
+/* --------------------------------------------
+
+User input form
+
+-------------------------------------------- */
+
 .textarea {
-  width: 100%;
+  width: 90%;
 }
 .new-tweet {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 25px;
 }
 
 form {
@@ -15,8 +20,9 @@ form {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: solid black 2px;
+  border-bottom: solid #545149 4px;
   margin-bottom: 5px;
+  font-size: 1rem;
   font-weight: bold;
   resize: none;
   height: 50px;
@@ -36,5 +42,120 @@ form {
 
 .form__submit .counter {
   font-family: Bungee, sans-serif;
+  font-weight: bold;
+}
+
+/* --------------------------------------------
+
+User tweets container
+
+-------------------------------------------- */
+.tweet {
+  width: 90%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  border: 3px solid #545149;
+  margin-top: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__user {
+  display: flex;
+}
+
+.header__user__avatar img {
+  width: 50px;
+  height: 50px;
+}
+
+.header__user__name {
+  margin-left: 10px;
+  opacity: 0.5;
+}
+
+.header__user__id {
+  display: none;
+}
+
+.header__user__id span {
+  font-size: 1.1rem;
+}
+
+.user-tweeter {
+  width: 100%;
+}
+
+.user-tweeter__text {
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: solid #545149 2px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.footer .footer__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .footer__links > div {
+  margin-right: 5px;
+}
+
+.footer__links__icon a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer__links__icon a i.fas {
+  color: hsla(219, 70%, 52%, 0.816);
+}
+
+/* --------------------------------------------
+
+Hover effects
+
+-------------------------------------------- */
+
+/* section:hover .header__user__id {
+  display: block;
+} */
+
+article.tweet:hover {
+  font-weight: bold;
+  box-shadow: 10px 10px 5px rgb(163, 161, 161, 0.7);
+}
+
+article.tweet:hover .footer__links__icon a i.fas {
+  color: rgba(24, 48, 92, 0.9);
+}
+
+article.tweet:hover .header__user__name {
+  opacity: 1;
+}
+
+article.tweet:hover .header__user__id span {
+  opacity: 0.5;
+}
+
+article.tweet:hover .time-ago span {
   font-weight: bold;
 }
