@@ -122,16 +122,17 @@ $(document).ready(function () {
 
     let $content = $('#tweet-form').serialize();
 
-    let contentLength = $('#text').val().length;
+    let contentLength = $('#tweeter-text').val().length;
     if (!contentLength) {
       $("#error span").text("It cannot be empty")
-      $("#error").show()
+      $("#error").show(200)
     } else if (contentLength > 140) {
       $("#error span").text("The number of characters should be less than 140")
-      $("#error").show()
+      $("#error").show(200)
     } else {
-      $("#error span").empty()
-      $("#error").hide()
+      $("#tweeter-text").val('');
+      $("#error span").text("")
+      $("#error").hide(200)
 
       $.ajax({
         type: 'POST',
@@ -140,20 +141,20 @@ $(document).ready(function () {
         //dataType: 'json',
         success: function (res) {
           $("#tweet-dynamic-container").prepend(createTweetElement(res))
-          $("#text").val('');
+          $("#tweeter-text").val('');
           $("#error span").text("")
           $("#error").hide()
         },
         failure: err => console.error(err)
       });
-    } 
+    }
   });
 
   loadtweets();
 
   $(".fa-angle-double-down").on("click", function () {
     $('.new-tweet').toggle()
-    $('#text').focus();
+    $('#tweeter-text').focus();
 
   })
 
