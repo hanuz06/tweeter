@@ -42,6 +42,12 @@ const data = [{
   }
 ]
 
+const escape = function (str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const createTweetElement = function (tweetData) {
   return (`
       <article class='tweet'>
@@ -61,7 +67,7 @@ const createTweetElement = function (tweetData) {
   
         <main class="user-tweeter">
           <div class="user-tweeter__text">
-            <span>${tweetData.content.text}</span>      
+            <span>${escape(tweetData.content.text)}</span>      
           </div>
         </main>
   
@@ -113,15 +119,20 @@ $(document).ready(function () {
   $onSubmit.on("submit", function (e) {
     e.preventDefault()
     console.log('Button clicked, performing ajax call...');
-    let $content = $('#tweet-form').serialize();
-    let contentLength = $('#text').val().length;
 
+    let $content = $('#tweet-form').serialize();
+
+    let contentLength = $('#text').val().length;
     if (!contentLength) {
-      alert("It cannot be empty")
+      $("#error span").text("It cannot be empty")
+      $("#error").show()
     } else if (contentLength > 140) {
-      alert('The number of characters should be less than 140')
+      $("#error span").text("The number of characters should be less than 140")
+      $("#error").show()
     } else {
-      console.log('posting')
+      $("#error span").empty()
+      $("#error").hide()
+
       $.ajax({
         type: 'POST',
         url: '/tweets',
@@ -129,16 +140,45 @@ $(document).ready(function () {
         //dataType: 'json',
         success: function (res) {
           $("#tweet-dynamic-container").prepend(createTweetElement(res))
+          $("#text").val('');
+          $("#error span").text("")
+          $("#error").hide()
         },
         failure: err => console.error(err)
       });
-    }
+    } 
   });
 
   loadtweets();
 
-  $(".fa-angle-double-down").on('click', function(){
+  $(".fa-angle-double-down").on("click", function () {
+    $('.new-tweet').toggle()
     $('#text').focus();
-    
+
   })
-});
+
+
+  // $("#myBtn").click(function () {
+  //   var mybutton = document.getElementById("myBtn");
+
+  //   // When the user scrolls down 20px from the top of the document, show the button
+  //   window.onscroll = function () {
+  //     scrollFunction()
+  //   };
+
+  //   function scrollFunction() {
+  //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  //       mybutton.style.display = "block";
+  //     } else {
+  //       mybutton.style.display = "none";
+  //     }
+  //   }
+
+  //   // When the user clicks on the button, scroll to the top of the document
+  //   function topFunction() {
+  //     document.body.scrollTop = 0;
+  //     document.documentElement.scrollTop = 0;
+  //   }
+
+  // });
+})
