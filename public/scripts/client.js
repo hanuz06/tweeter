@@ -153,11 +153,18 @@ $(document).ready(function () {
   loadtweets();
 
   $(".fa-angle-double-down").on("click", function () {
-    $('.new-tweet').toggle()
+    $('.new-tweet').toggle(300)
     $('#tweeter-text').focus();
+    $("#tweeter-text").val('');
+    $("#error span").text("")
+    $("#error").hide()
 
   })
-
+  $("#myBtn").click(function () {
+    $("html").scrollTop(0);
+    $('.new-tweet').show(200)
+    $('#tweeter-text').focus();
+  });
 
   // $("#myBtn").click(function () {
   //   var mybutton = document.getElementById("myBtn");
@@ -177,8 +184,9 @@ $(document).ready(function () {
 
   //   // When the user clicks on the button, scroll to the top of the document
   //   function topFunction() {
-  //     document.body.scrollTop = 0;
-  //     document.documentElement.scrollTop = 0;
+  //     // document.body.scrollTop = 0;
+  //     // document.documentElement.scrollTop = 0;
+  //     $("html").scrollTop(0);
   //   }
 
   // });

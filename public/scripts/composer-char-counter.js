@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // --- our code goes here ---
-  $('#text').on('keyup', function () {
+  $('#tweeter-text').on('keyup', function () {
     let inputLength = $(this).val().length;
     let charLeft = 140 - Number(inputLength);
 
