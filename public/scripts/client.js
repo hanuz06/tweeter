@@ -111,7 +111,6 @@ const loadtweets = function () {
   });
 }
 
-
 $(document).ready(function () {
   let onChange;
 
@@ -125,25 +124,21 @@ $(document).ready(function () {
     let contentLength = $('#tweeter-text').val().length;
     if (!contentLength) {
       $("#error span").text("It cannot be empty")
-      $("#error").show(200)
+      $("#error").slideDown(200)
     } else if (contentLength > 140) {
       $("#error span").text("The number of characters should be less than 140")
-      $("#error").show(200)
+      $("#error").slideDown(200)
     } else {
       $("#tweeter-text").val('');
       $("#error span").text("")
-      $("#error").hide(200)
+      $("#error").slideUp(200)
 
       $.ajax({
         type: 'POST',
         url: '/tweets',
         data: $content,
-        //dataType: 'json',
         success: function (res) {
           $("#tweet-dynamic-container").prepend(createTweetElement(res))
-          $("#tweeter-text").val('');
-          $("#error span").text("")
-          $("#error").hide()
         },
         failure: err => console.error(err)
       });
@@ -153,41 +148,38 @@ $(document).ready(function () {
   loadtweets();
 
   $(".fa-angle-double-down").on("click", function () {
-    $('.new-tweet').toggle(300)
+    $('.new-tweet').slideToggle(300)
     $('#tweeter-text').focus();
     $("#tweeter-text").val('');
     $("#error span").text("")
-    $("#error").hide()
-
+    $("#error").slideUp()
   })
+
   $("#myBtn").click(function () {
-    $("html").scrollTop(0);
+    $("html").animate({
+        scrollTop: 0
+      },
+      800);
     $('.new-tweet').show(200)
     $('#tweeter-text').focus();
   });
 
   // $("#myBtn").click(function () {
-  //   var mybutton = document.getElementById("myBtn");
+  var mybutton = document.getElementById("myBtn");
 
-  //   // When the user scrolls down 20px from the top of the document, show the button
-  //   window.onscroll = function () {
-  //     scrollFunction()
-  //   };
+  // When the user scrolls down 2000px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
 
-  //   function scrollFunction() {
-  //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-  //       mybutton.style.display = "block";
-  //     } else {
-  //       mybutton.style.display = "none";
-  //     }
-  //   }
-
-  //   // When the user clicks on the button, scroll to the top of the document
-  //   function topFunction() {
-  //     // document.body.scrollTop = 0;
-  //     // document.documentElement.scrollTop = 0;
-  //     $("html").scrollTop(0);
-  //   }
-
-  // });
+  function scrollFunction() {
+    if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+      mybutton.style.display = "block";
+      $(".fa-angle-double-down").css('display', 'none');
+    } else {
+      mybutton.style.display = "none";
+      $(".fa-angle-double-down").css('display', 'inline');
+    }
+  }
+ 
 })

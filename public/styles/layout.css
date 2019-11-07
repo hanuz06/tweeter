@@ -30,7 +30,8 @@ body {
 
 nav {
   font-family: Bungee, sans-serif;
-  background-color: #4056a1;
+  /* background-color: #4056a1; */
+  background-color:  rgba(9, 131, 179);
   color: #fff;
 }
 

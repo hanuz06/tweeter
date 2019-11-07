@@ -16,7 +16,7 @@ form {
   justify-content: center;
 }
 
-#text {
+#tweeter-text {
   width: 100%;
   background-color: transparent;
   border: none;
@@ -26,6 +26,7 @@ form {
   font-weight: bold;
   resize: none;
   height: 50px;
+  outline-style: none;
 }
 
 .form__submit {
@@ -38,6 +39,10 @@ form {
   border: none;
   font-family: Bungee, sans-serif;
   color: #f4f1ec;
+  padding: 6px 8px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 2px rgba(141, 138, 138, 0.7);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .form__submit .counter {
@@ -52,7 +57,7 @@ User tweets container
 -------------------------------------------- */
 .tweet {
   width: 90%;
-  height: 200px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   padding: 25px;
@@ -93,7 +98,7 @@ User tweets container
 }
 
 .user-tweeter__text {
-  height: 50px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -101,9 +106,8 @@ User tweets container
   font-size: 1.2rem;
   border: none;
   border-bottom: solid #545149 2px;
-  word-wrap:break-word
+  word-wrap: break-word;
 }
-
 
 .footer {
   display: flex;
@@ -129,6 +133,52 @@ User tweets container
 
 .footer__links__icon a i.fas {
   color: hsla(219, 70%, 52%, 0.816);
+}
+
+#myBtn {
+  width: 60px;
+  height: 60px;
+  float: right;
+  position: relative;
+  bottom: 50px;
+  right: -20px;
+  border-radius: 50%;
+  border: none;
+  background-color: red;
+  box-shadow: 0px 0px 15px #504f4f;
+  display: none;
+}
+
+#myBtn .fa-angle-double-up {
+  color: #fff;
+  opacity: 0.6;
+  font-size: 1.2rem;
+}
+
+.error-message {  
+  border: 2px red solid;
+  max-width: 800px;
+  height: 80px;
+  margin: 20px auto 20px;
+  padding: 15px;
+  display: none;
+}
+
+.error-message_center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;   
+}
+
+.error-message span {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 600;
+}
+
+.fa-times {
+  color: red;
 }
 
 /* --------------------------------------------
@@ -160,4 +210,21 @@ article.tweet:hover .header__user__id span {
 
 article.tweet:hover .time-ago span {
   font-weight: bold;
+}
+
+#myBtn:hover,
+.form__submit input {
+  cursor: pointer;
+  outline-style: none;
+}
+
+#myBtn:hover .fa-angle-double-up {
+  opacity: 1;
+  color: white;
+}
+
+.form__submit input:active {
+  box-shadow: 0px 0px 2px 2px rgba(141, 138, 138, 0.7),
+    inset 0px 0px 2px 2px rgba(141, 138, 138, 0.7);
+  transform: translate(6px, 6px);
 }

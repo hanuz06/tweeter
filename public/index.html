@@ -29,7 +29,9 @@
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <a name="top"></a>
 </head>
 
 <body>
@@ -39,7 +41,7 @@
       <div class="logo">
         <span>Tweeter</span>
       </div>
-      <div class="tweeter-input">
+      <div id='up' class="tweeter-input">
         <span><b>Write</b> a new tweet</span><br />
         <i class="fas fa-angle-double-down"></i>
       </div>
@@ -59,11 +61,18 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
 
+    <div id='error' class="error-message">
+      <div class="error-message_center">
+        <i class="fas fa-times"></i>
+        <span></span>
+      </div>
+    </div>
+
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form id="tweet-form">
         <div class="textarea">
-          <textarea id="text" name="text" placeholder="What are you humming about?"></textarea><br />
+          <textarea id="tweeter-text" name="text" placeholder="What are you humming about?" autofocus></textarea><br />
           <div class="form__submit">
             <input id="post-button" type="submit" value="Tweet">
             <span class="counter">140</span>
@@ -71,8 +80,11 @@
         </div>
       </form>
     </section>
+
     <!-- User tweets -->
     <section id="tweet-dynamic-container"></section> <br />
+
+    <button id="myBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
 
   </main>
   <script src="./scripts/composer-char-counter.js"></script>
