@@ -6,41 +6,51 @@
 
 // --- our code goes here ---
 
-
-const data = [{
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1573022863112
+var timeSince = function (date) {
+  if (typeof date !== 'object') {
+    date = new Date(date);
   }
-]
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var intervalType;
+
+  var interval = Math.floor(seconds / 31536000);
+  if (interval >= 1) {
+    intervalType = 'year';
+  } else {
+    interval = Math.floor(seconds / 2592000);
+    if (interval >= 1) {
+      intervalType = 'month';
+    } else {
+      interval = Math.floor(seconds / 86400);
+      if (interval >= 1) {
+        intervalType = 'day';
+      } else {
+        interval = Math.floor(seconds / 3600);
+        if (interval >= 1) {
+          intervalType = "hour";
+        } else {
+          interval = Math.floor(seconds / 60);
+          if (interval == 0) {
+            intervalType = 'a moment'
+          } else if (interval >= 1) {
+            intervalType = "minute";
+          } else {
+            interval = seconds;
+            intervalType = "second";
+          }
+        }
+      }
+    }
+  }
+
+  if (interval === 0) {    
+    return intervalType
+  } else {
+    intervalType += 's';
+    return interval + ' ' + intervalType;
+  }
+};
 
 const escape = function (str) {
   let div = document.createElement('div');
@@ -48,7 +58,10 @@ const escape = function (str) {
   return div.innerHTML;
 }
 
-const createTweetElement = function (tweetData) {
+const createTweetElement = function (tweetData) {  
+
+  let newTime = timeSince(new Date(tweetData.created_at))
+  
   return (`
       <article class='tweet'>
         <header class="header">
@@ -73,7 +86,7 @@ const createTweetElement = function (tweetData) {
   
         <footer class="footer">
           <div class="time-ago">
-              <span>${tweetData.created_at}</span>
+              <span>${newTime} ago</span>
           </div>
           <div class="footer__links">
             <div class="footer__links__icon">
@@ -181,5 +194,7 @@ $(document).ready(function () {
       $(".fa-angle-double-down").css('display', 'inline');
     }
   }
- 
+
+
+
 })

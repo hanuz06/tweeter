@@ -47,46 +47,50 @@
       </div>
     </div>
   </nav>
-  <header class="main-header">
-    <div class="avatar-and-name">
-      <div class="avatar">
-        <img src="/images/asian-avatar.png">
-      </div>
-      <div class="name">
-        <h2>Andrey Li</h2>
-      </div>
-    </div>
-  </header>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-
-    <div id='error' class="error-message">
-      <div class="error-message_center">
-        <i class="fas fa-times"></i>
-        <span></span>
-      </div>
-    </div>
-
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form id="tweet-form">
-        <div class="textarea">
-          <textarea id="tweeter-text" name="text" placeholder="What are you humming about?" autofocus></textarea><br />
-          <div class="form__submit">
-            <input id="post-button" type="submit" value="Tweet">
-            <span class="counter">140</span>
-          </div>
+  <div class="responsive-container">
+    <header class="main-header">
+      <div class="avatar-and-name">
+        <div class="avatar">
+          <img src="/images/asian-avatar.png">
         </div>
-      </form>
-    </section>
+        <div class="name">
+          <h2>Andrey Li</h2>
+        </div>
+      </div>
+    </header>
 
-    <!-- User tweets -->
-    <section id="tweet-dynamic-container"></section> <br />
+    <!-- Page-specific (main) content here -->
+    <main class="container">
 
-    <button id="myBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
+      <div id='error' class="error-message">
+        <div class="error-message_center">
+          <i class="fas fa-times"></i>
+          <span></span>
+        </div>
+      </div>
 
-  </main>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form id="tweet-form">
+          <div class="textarea">
+            <textarea id="tweeter-text" name="text" placeholder="What are you humming about?"
+              autofocus></textarea><br />
+            <div class="form__submit">
+              <input id="post-button" type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- User tweets -->
+      <section id="tweet-dynamic-container"></section> <br />
+
+      <button id="myBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
+
+    </main>
+  </div>
   <script src="./scripts/composer-char-counter.js"></script>
   <script src="./scripts/client.js"></script>
 </body>
