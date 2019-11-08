@@ -13,6 +13,11 @@ This repository is the starter code for the project: I built it to practice my H
 
 ## Final Product
 
+!["Screenshot of URL page"](https://github.com/hanuz06/tinyapp/blob/master/docs/urls-page.png)
+
+!["Screenshot of Registration page"](https://github.com/hanuz06/tinyapp/blob/master/docs/register-page.png)
+
+!["Screenshot of Edit page"](https://github.com/hanuz06/tinyapp/blob/master/docs/url-edit-page.png)
 
 
 
