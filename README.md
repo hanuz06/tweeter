@@ -13,22 +13,19 @@ This repository is the starter code for the project: I built it to practice my H
 
 ## Final Product
 
-!["Screenshot of URL page"](https://github.com/hanuz06/tinyapp/blob/master/docs/urls-page.png)
+!["Screenshot of front page"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweter-front-page.png)
 
-!["Screenshot of Registration page"](https://github.com/hanuz06/tinyapp/blob/master/docs/register-page.png)
+!["Screenshot of go-to-top-button"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweeter-go-to-top-button.png)
 
-!["Screenshot of Edit page"](https://github.com/hanuz06/tinyapp/blob/master/docs/url-edit-page.png)
-
-
+!["Screenshot of the page for mobiles"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweeter-mobile-friendly.png)
 
 ## Dependencies
-  - body-parser
-  - chance
-  - express
-  - md5
-  - nodemon
+
+- body-parser
+- chance
+- express
+- md5
+- nodemon
 
 - Express
 - Node 5.10.x or above
-
-

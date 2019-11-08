@@ -9,6 +9,7 @@ User input form
 }
 .new-tweet {
   margin: 0 auto 25px;
+  display: none;
 }
 
 form {
