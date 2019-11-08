@@ -13,11 +13,11 @@ This repository is the starter code for the project: I built it to practice my H
 
 ## Final Product
 
-!["Screenshot of front page"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweter-front-page.png)
+!["Screenshot of front page"](https://github.com/hanuz06/tweeter/blob/master/docs/tweter-front-page.png)
 
-!["Screenshot of go-to-top-button"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweeter-go-to-top-button.png)
+!["Screenshot of go-to-top-button"](https://github.com/hanuz06/tweeter/blob/master/docs/tweeter-go-to-top-button.png)
 
-!["Screenshot of the page for mobiles"](https://github.com/hanuz06/tweeter/blob/master/public/images/tweeter-mobile-friendly.png)
+!["Screenshot of the page for mobiles"](https://github.com/hanuz06/tweeter/blob/master/docs/tweeter-mobile-friendly.png)
 
 ## Dependencies
 

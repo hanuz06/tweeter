@@ -107,7 +107,7 @@ User tweets container
   font-size: 1.2rem;
   border: none;
   border-bottom: solid #545149 2px;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .footer {

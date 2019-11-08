@@ -6,7 +6,7 @@
 
 // --- our code goes here ---
 
-let timeSince = function (date) {
+let timeSince = function(date) {
   if (typeof date !== 'object') {
     date = new Date(date);
   }
@@ -52,13 +52,13 @@ let timeSince = function (date) {
   }
 };
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-const createTweetElement = function (tweetData) {
+const createTweetElement = function(tweetData) {
 
   let newTime = timeSince(new Date(tweetData.created_at));
 
@@ -104,7 +104,7 @@ const createTweetElement = function (tweetData) {
     `);
 };
 
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
@@ -115,7 +115,7 @@ const renderTweets = function (tweets) {
   });
 };
 
-const loadtweets = function () {
+const loadtweets = function() {
   $.ajax({
     url: '/tweets',
     dataType: 'json',
@@ -123,12 +123,12 @@ const loadtweets = function () {
   });
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   const $onSubmit = $('#tweet-form');
-  $onSubmit.on("submit", function (e) {
+  $onSubmit.on("submit", function(e) {
     e.preventDefault();
-
+    
     let $content = $('#tweet-form').serialize();
 
     let contentLength = $('#tweeter-text').val().length;
@@ -148,7 +148,7 @@ $(document).ready(function () {
         type: 'POST',
         url: '/tweets',
         data: $content,
-        success: function (res) {
+        success: function(res) {
           $("#tweet-dynamic-container").prepend(createTweetElement(res));
         }
       });
@@ -157,7 +157,7 @@ $(document).ready(function () {
 
   loadtweets();
 
-  $(".fa-angle-double-down").on("click", function () {
+  $(".fa-angle-double-down").on("click", function() {
     $('.new-tweet').slideToggle(300);
     $('#tweeter-text').focus();
     $("#tweeter-text").val('');
@@ -165,25 +165,25 @@ $(document).ready(function () {
     $("#error").slideUp();
   });
 
-  $("#myBtn").click(function () {
+  $("#myBtn").click(function() {
     $("html").animate({
-        scrollTop: 0
-      },
-      800);
+      scrollTop: 0
+    },
+    800);
     $('.new-tweet').show(200);
     $('#tweeter-text').focus();
   });
 
 
   // When the user scrolls down from the top of the document, show the button
-  window.onscroll = function () {
+  window.onscroll = function() {
     scrollFunction();
   };
 
   function scrollFunction() {
     //let height = document.documentElement.clientHeight;
 
-    if ($(window).scrollTop() + $(window).height() - $(document).height() > -100) {
+    if ($(window).scrollTop() + $(window).height()- $(document).height()>-100) {
       $("#myBtn").css('display', 'block');
       $(".fa-angle-double-down").css('display', 'none');
     } else {
