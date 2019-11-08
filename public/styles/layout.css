@@ -29,8 +29,7 @@ body {
  */
 
 nav {
-  font-family: Bungee, sans-serif;
-  /* background-color: #4056a1; */
+  font-family: Bungee, sans-serif;  
   background-color:  rgba(9, 131, 179);
   color: #fff;
 }

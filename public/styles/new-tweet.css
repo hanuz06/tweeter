@@ -4,7 +4,7 @@ User input form
 
 -------------------------------------------- */
 
-.textarea {
+.tweet-textarea {
   width: 90%;
 }
 .new-tweet {
@@ -22,7 +22,7 @@ form {
   border: none;
   border-bottom: solid #545149 4px;
   margin-bottom: 5px;
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-weight: bold;
   resize: none;
   height: 50px;
@@ -140,12 +140,13 @@ User tweets container
   height: 60px;
   float: right;
   position: relative;
+  right: -30px;
   bottom: 50px;
-  right: -20px;
   border-radius: 50%;
   border: none;
   background-color: red;
   box-shadow: 0px 0px 15px #504f4f;
+  opacity: 0.7;
   display: none;
 }
 
@@ -155,8 +156,8 @@ User tweets container
   font-size: 1.2rem;
 }
 
-.error-message {  
-  border: 2px red solid;
+.error-message {
+  border: 4px red solid;
   max-width: 800px;
   height: 80px;
   margin: 20px auto 20px;
@@ -167,18 +168,19 @@ User tweets container
 .error-message_center {
   margin-left: auto;
   margin-right: auto;
-  text-align: center;   
+  text-align: center;
 }
 
 .error-message span {
   margin-left: 10px;
-  font-size: 1.2rem;
+  font-size: 1.9rem;
   color: black;
   font-weight: 600;
 }
 
 .fa-times {
   color: red;
+  font-size: 1.9rem;
 }
 
 /* --------------------------------------------
@@ -227,4 +229,94 @@ article.tweet:hover .time-ago span {
   box-shadow: 0px 0px 2px 2px rgba(141, 138, 138, 0.7),
     inset 0px 0px 2px 2px rgba(141, 138, 138, 0.7);
   transform: translate(6px, 6px);
+}
+
+/* --------------------------------------------
+
+Media Queries
+
+-------------------------------------------- */
+@media (max-width: 385px) {
+  nav {
+    padding: 0;
+  }
+
+  .navbar {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  #myBtn {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 0;
+  }
+
+  #tweeter-text {
+    font-size: 1rem;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+
+  .header__user {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .header__user__name {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 120px;
+  }
+
+  .logo {
+    font-size: 3rem;
+    margin-left: 30px;
+    margin-bottom: 50px;
+  }
+
+  .tweeter-input {
+    font-size: 2rem;
+    margin-right: 30px;
+    margin-bottom: 50px;
+  }
+
+  .main-header {
+    width: 50vw;
+    margin-left: 20px;
+  }
+
+  .avatar-and-name {
+    height: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    width: 50vw;
+    margin-right: 30px;
+  }
+
+  #tweeter-text {
+    font-size: 1.4rem;
+  }
+  #myBtn {
+    right: -10px;
+  }
+
+  .user-tweeter__text {
+    font-size: 1.8rem;
+  }
 }

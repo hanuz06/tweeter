@@ -6,15 +6,15 @@
 
 // --- our code goes here ---
 
-var timeSince = function (date) {
+let timeSince = function (date) {
   if (typeof date !== 'object') {
     date = new Date(date);
   }
 
-  var seconds = Math.floor((new Date() - date) / 1000);
-  var intervalType;
+  let seconds = Math.floor((new Date() - date) / 1000);
+  let intervalType;
 
-  var interval = Math.floor(seconds / 31536000);
+  let interval = Math.floor(seconds / 31536000);
   if (interval >= 1) {
     intervalType = 'year';
   } else {
@@ -31,8 +31,8 @@ var timeSince = function (date) {
           intervalType = "hour";
         } else {
           interval = Math.floor(seconds / 60);
-          if (interval == 0) {
-            intervalType = 'a moment'
+          if (interval === 0) {
+            intervalType = 'a moment';
           } else if (interval >= 1) {
             intervalType = "minute";
           } else {
@@ -44,8 +44,8 @@ var timeSince = function (date) {
     }
   }
 
-  if (interval === 0) {    
-    return intervalType
+  if (interval === 0) {
+    return intervalType;
   } else {
     intervalType += 's';
     return interval + ' ' + intervalType;
@@ -56,12 +56,12 @@ const escape = function (str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
-const createTweetElement = function (tweetData) {  
+const createTweetElement = function (tweetData) {
 
-  let newTime = timeSince(new Date(tweetData.created_at))
-  
+  let newTime = timeSince(new Date(tweetData.created_at));
+
   return (`
       <article class='tweet'>
         <header class="header">
@@ -102,7 +102,7 @@ const createTweetElement = function (tweetData) {
         </footer> 
       </article>      
     `);
-}
+};
 
 const renderTweets = function (tweets) {
   // loops through tweets
@@ -119,41 +119,38 @@ const loadtweets = function () {
   $.ajax({
     url: '/tweets',
     dataType: 'json',
-    success: (data => renderTweets(data)),
-    failure: (err => console.error(err))
+    success: (data => renderTweets(data))
   });
-}
+};
 
 $(document).ready(function () {
-  let onChange;
 
   const $onSubmit = $('#tweet-form');
   $onSubmit.on("submit", function (e) {
-    e.preventDefault()
-    console.log('Button clicked, performing ajax call...');
+    e.preventDefault();
 
     let $content = $('#tweet-form').serialize();
 
     let contentLength = $('#tweeter-text').val().length;
     if (!contentLength) {
-      $("#error span").text("It cannot be empty")
-      $("#error").slideDown(200)
+      $("#error span").text("It cannot be empty");
+      $("#error").slideDown(200);
     } else if (contentLength > 140) {
-      $("#error span").text("The number of characters should be less than 140")
-      $("#error").slideDown(200)
+      $("#error span").text("The number of characters should be less than 140");
+      $("#error").slideDown(200);
     } else {
+      $(".counter").replaceWith('<span class="counter">140</span>');
       $("#tweeter-text").val('');
-      $("#error span").text("")
-      $("#error").slideUp(200)
+      $("#error span").text("");
+      $("#error").slideUp(200);
 
       $.ajax({
         type: 'POST',
         url: '/tweets',
         data: $content,
         success: function (res) {
-          $("#tweet-dynamic-container").prepend(createTweetElement(res))
-        },
-        failure: err => console.error(err)
+          $("#tweet-dynamic-container").prepend(createTweetElement(res));
+        }
       });
     }
   });
@@ -161,40 +158,37 @@ $(document).ready(function () {
   loadtweets();
 
   $(".fa-angle-double-down").on("click", function () {
-    $('.new-tweet').slideToggle(300)
+    $('.new-tweet').slideToggle(300);
     $('#tweeter-text').focus();
     $("#tweeter-text").val('');
-    $("#error span").text("")
-    $("#error").slideUp()
-  })
+    $("#error span").text("");
+    $("#error").slideUp();
+  });
 
   $("#myBtn").click(function () {
     $("html").animate({
         scrollTop: 0
       },
       800);
-    $('.new-tweet').show(200)
+    $('.new-tweet').show(200);
     $('#tweeter-text').focus();
   });
 
-  // $("#myBtn").click(function () {
-  var mybutton = document.getElementById("myBtn");
 
-  // When the user scrolls down 2000px from the top of the document, show the button
+  // When the user scrolls down from the top of the document, show the button
   window.onscroll = function () {
-    scrollFunction()
+    scrollFunction();
   };
 
   function scrollFunction() {
-    if (document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
-      mybutton.style.display = "block";
+    //let height = document.documentElement.clientHeight;
+
+    if ($(window).scrollTop() + $(window).height() - $(document).height() > -100) {
+      $("#myBtn").css('display', 'block');
       $(".fa-angle-double-down").css('display', 'none');
     } else {
-      mybutton.style.display = "none";
-      $(".fa-angle-double-down").css('display', 'inline');
+      $("#myBtn").css('display', 'none');
+      $(".fa-angle-double-down").css('display', 'block');
     }
   }
-
-
-
-})
+});

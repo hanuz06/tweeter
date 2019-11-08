@@ -2,17 +2,21 @@ body {
   padding-top: 120px;
 }
 
-.main-header {
+.avatar-and-name {
   display: flex;
+  flex-flow: column;
   height: 400px;
-  width: 100%;
+  width: 100vw;
   justify-content: center;
   align-items: center;
   background-color: #bdbd59;
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");  
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
 }
 
-.tweeter-input {
+.avatar img {
+  display: block;
+}
+a .tweeter-input {
   text-align: center;
 }
 
@@ -27,13 +31,14 @@ body {
 }
 
 main h2 {
-  font-size: 1.3rem;
-  text-align: center;  
+  font-size: 2rem;
+  text-align: center;
 }
 
 main {
-  font-size: 1rem;
-} 
+  font-size: 1.4rem;
+}
+
 #up .fa-angle-double-down:hover {
   opacity: 1;
   cursor: pointer;

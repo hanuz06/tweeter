@@ -1,18 +1,35 @@
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   height: 120px;
   width: 100%;
   z-index: 1000;
-  padding: 1.5em;
+  padding: 1.5em;    
 }
 
 .navbar {
   display: flex;
   position: relative;
-  justify-content: space-between;  
+  justify-content: space-between;    
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.tweeter-input {
-  font-family: Source Sans Pro;
+.tweeter-input {    
+  font-family: Source Sans Pro;    
+}
+
+#up .fa-angle-double-down {
+  display: block;
+  text-align: center;
+}
+
+#up .fa-angle-double-down:hover {
+  opacity: 1;
+  cursor: pointer;
+  animation: bounce 1s infinite;  
 }
