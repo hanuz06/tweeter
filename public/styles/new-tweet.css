@@ -139,10 +139,10 @@ User tweets container
 #myBtn {
   width: 60px;
   height: 60px;
-  float: right;
-  position: relative;
-  right: -30px;
-  bottom: 50px;
+  position: fixed;  
+  margin-right: 3%; 
+  right: -2%; 
+  bottom: 20px;
   border-radius: 50%;
   border: none;
   background-color: red;
@@ -160,7 +160,7 @@ User tweets container
 .error-message {
   border: 4px red solid;
   max-width: 800px;
-  height: 80px;
+  height: auto;
   margin: 20px auto 20px;
   padding: 15px;
   display: none;
@@ -170,6 +170,7 @@ User tweets container
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .error-message span {
@@ -251,8 +252,8 @@ Media Queries
     width: 50px;
     height: 50px;
     bottom: 10px;
-    right: 0;
   }
+
 
   #tweeter-text {
     font-size: 1rem;
@@ -287,6 +288,14 @@ Media Queries
     margin-bottom: 50px;
   }
 
+  #myBtn {
+    right: -2%;
+  }
+
+  .tweet {
+    width: 80%;
+  }
+
   .tweeter-input {
     font-size: 2rem;
     margin-right: 30px;
@@ -312,10 +321,7 @@ Media Queries
 
   #tweeter-text {
     font-size: 1.4rem;
-  }
-  #myBtn {
-    right: -10px;
-  }
+  }  
 
   .user-tweeter__text {
     font-size: 1.8rem;
