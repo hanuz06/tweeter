@@ -1,8 +1,8 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone made by Andrey Li.
+Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: I built it to practice my HTML, CSS, JS, jQuery and AJAX front-end skills, as well as Node, Express and MongoDB back-end skills.
+This app was built it to improve HTML, CSS, JS, jQuery and AJAX front-end skills, as well as Node, Express back-end skills.
 
 ## Getting Started
 
@@ -13,11 +13,14 @@ This repository is the starter code for the project: I built it to practice my H
 
 ## Final Product
 
+### Screeshot of the front page
 !["Screenshot of front page"](https://github.com/hanuz06/tweeter/blob/master/docs/tweter-front-page.png)
 
+### Screeshot of the go-to-top-button
 !["Screenshot of go-to-top-button"](https://github.com/hanuz06/tweeter/blob/master/docs/tweeter-go-to-top-button.png)
 
-!["Screenshot of the page for mobiles"](https://github.com/hanuz06/tweeter/blob/master/docs/tweeter-mobile-friendly.png)
+### Screeshot of the mobile-friendly page
+!["Screenshot of the mobile-friendly page"](https://github.com/hanuz06/tweeter/blob/master/docs/tweeter-mobile-friendly.png)
 
 ## Dependencies
 
